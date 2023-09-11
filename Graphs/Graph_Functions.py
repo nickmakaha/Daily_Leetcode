@@ -41,10 +41,19 @@ def levels(root):
         level += 1
     return dic
         
-        
+def numLeaves(root):
+        if(root.left == None and root.right == None):
+            return 1 
+        else:
+            if(root.left is not None and root.right is not None):
+                return numLeaves(root.left) + numLeaves(root.right)
+            elif(root.left is None):
+                return numLeaves(root.right)
+            else:
+                return numLeaves(root.left)        
         
     
 print(levels(root))
-    
+print(numLeaves(root))    
 
 
